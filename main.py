@@ -2,6 +2,7 @@ import pandas
 import datetime as dt
 import random
 import smtplib
+import os
 
 now = dt.datetime.now()
 today = (now.month, now.day)
@@ -31,7 +32,7 @@ if today in birthdays_dict:
     personalized_letter = letter_contents.replace("[NAME]", birthday_person["name"])
 
     my_email = "sebastian.olteanu81@gmail.com"
-    password = ""
+    password = os.environ["EMAIL_PASSWORD]
 
     with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.starttls()
