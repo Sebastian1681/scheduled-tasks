@@ -31,8 +31,8 @@ if today in birthdays_dict:
 
     personalized_letter = letter_contents.replace("[NAME]", birthday_person["name"])
 
-    my_email = "sebastian.olteanu81@gmail.com"
-    password = os.environ["EMAIL_PASSWORD]
+    my_email = os.environ.get("MY_EMAIL")
+    password = os.environ.get["EMAIL_PASSWORD]
 
     with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.starttls()
