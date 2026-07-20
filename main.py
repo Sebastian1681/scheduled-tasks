@@ -36,9 +36,9 @@ if today in birthdays_dict:
 
     with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.starttls()
-        connection.login(user=my_email, password=password)
+        connection.login(user=MY_EMAIL, password=MY_PASSWORD)
         connection.sendmail(
-            from_addr=my_email,
+            from_addr=MY_EMAIL,
             to_addrs=birthday_person["email"],
             msg=f"Subject:Happy Birthday!\n\n{personalized_letter}"
         )
