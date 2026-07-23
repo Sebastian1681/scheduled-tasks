@@ -4,9 +4,6 @@ import random
 import smtplib
 import os
 
-print("RULEAZA ACEST MAIN.PY")
-print("fisier:", __file__)
-print("folder curent:", os.getcwd())
 
 now = dt.datetime.now()
 today = (now.month, now.day)
@@ -17,10 +14,6 @@ birthdays_dict = {
     (data_row["month"], data_row["day"]): data_row
     for index, data_row in data.iterrows()
 }
-
-print("today:", today)
-print("keys:", birthdays_dict.keys())
-print("match:", today in birthdays_dict)
 
 
 if today in birthdays_dict:
