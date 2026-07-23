@@ -4,6 +4,10 @@ import random
 import smtplib
 import os
 
+print("RULEAZA ACEST MAIN.PY")
+print("fisier:", __file__)
+print("folder curent:", os.getcwd())
+
 now = dt.datetime.now()
 today = (now.month, now.day)
 
@@ -13,6 +17,11 @@ birthdays_dict = {
     (data_row["month"], data_row["day"]): data_row
     for index, data_row in data.iterrows()
 }
+
+print("today:", today)
+print("keys:", birthdays_dict.keys())
+print("match:", today in birthdays_dict)
+
 
 if today in birthdays_dict:
     birthday_person = birthdays_dict[today]
@@ -27,6 +36,7 @@ if today in birthdays_dict:
     my_email = os.environ.get("MY_EMAIL")
     password = os.environ.get("MY_PASSWORD")
 
+
     with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.starttls()
         connection.login(user=my_email, password=password)
@@ -35,4 +45,3 @@ if today in birthdays_dict:
             to_addrs=birthday_person["email"],
             msg=f"Subject:Happy Birthday!\n\n{personalized_letter}"
         )
-
